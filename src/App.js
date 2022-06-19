@@ -7,8 +7,8 @@ import Input from './components/Input';
 
 
 function App() {
-  const [username, setUsername] = useState("rohitJod");
-  const [tag, setTag] = useState("4324");
+  const [username, setUsername] = useState("");
+  const [tag, setTag] = useState("");
   const [region, setRegion]= useState("ap");
   const [mmr, setMmr]= useState({});
   const [account, setAccount]= useState({});
