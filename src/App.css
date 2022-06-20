@@ -260,6 +260,7 @@ background: linear-gradient(to right, rgba(0,255,0,0.2),#0c0f0c);
 
 .match{
   margin: 10px 20px;
+  cursor: pointer;
 }
 
 .match__row{

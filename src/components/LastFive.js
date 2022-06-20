@@ -1,7 +1,8 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 
 const LastFive = ({data, mmr, username, tag}) => {
-   console.log(username)
+   const navigate = useNavigate();
    function compare( a, b ) {
       if ( a.stats.score > b.stats.score ){
         return -1;
@@ -30,7 +31,7 @@ const LastFive = ({data, mmr, username, tag}) => {
 
     
   return (
-      <div className="row__holder">
+      <div className="row__holder" >
     {data.data.map((val,i)=>{
     
     let playerData=val.players.all_players.find((player)=>player.name===username && player.tag===tag);
@@ -56,7 +57,7 @@ const LastFive = ({data, mmr, username, tag}) => {
    // console.log(playerData.stats.headshots/(playerData.stats.headshots+playerData.stats.bodyshots+playerData.stats.legshots)*100)
    let HS = playerData.stats.headshots / (playerData.stats.headshots + playerData.stats.bodyshots + playerData.stats.legshots) *100;
         return(
-            <div key={val.metadata.matchid} className={win?"match team-won":"match team-lost"}>
+            <div onClick={()=>navigate(`/match/${val.metadata.matchid}`)} key={val.metadata.matchid} className={win?"match team-won":"match team-lost"}>
    <div className="match__row">
       <div className="match__portrait">
           <img data-v-7c8e0719="" src={playerData.assets.agent.small}/></div>
