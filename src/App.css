@@ -37,11 +37,6 @@
   }
 }
 
-.singleMMR{
-  border: 1px solid black;
-  margin: 20px;
-}
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
 
 *,
@@ -167,7 +162,7 @@
 .form {
   position: relative;
   /* z-index: 1; */
-  background: #FFFFFF;
+  /* background: #FFFFFF; */
   max-width: 360px;
   margin: 0 auto 20px;
   padding: 45px;
@@ -251,4 +246,176 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
+}
+
+.team-won{
+border-left: 5px solid green;
+background: linear-gradient(to right, rgba(0,255,0,0.2),#0c0f0c);
+}
+
+.team-lost{
+  border-left: 5px solid red;
+  background: linear-gradient(to right, rgba(255,0,0,0.2),#0c0f0c);
+}
+
+.match{
+  margin: 10px 20px;
+}
+
+.match__row{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  /* background-color: #0c0f0c; */
+  color: #fff;
+  flex-grow: 1;
+}
+
+.match__portrait img{
+  max-width: 72px;
+}
+
+.match__details{
+  display: flex;
+  flex-direction: column;
+}
+
+.match__subtitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.match__subtitle img{
+  width: 28px;
+}
+
+.match__results{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.match__rating img{
+  width: 48px;
+}
+
+.match__row-stats{
+  display: flex;
+}
+
+.match__row-stats .stat{
+  margin-left:35px;
+}
+
+.match__row > * {
+  flex-grow: 1;
+}
+
+.match__row-stats .value{
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.match__time{
+  background: #4d4d4d;
+  color: #fff;
+  border-radius: 20px;
+  /* padding: 0 10px; */
+  height: fit-content;
+}
+
+.match__name{
+  font-size: 1.3rem;
+}
+
+body{
+  background-color: #1a1a1a;
+}
+
+.match__row{
+  padding:10px
+}
+
+.match__details{
+  width: 330px;
+}
+
+.match__rr{
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  padding: 10px;
+  flex-grow: 0;
+  margin-right: 20px;
+  font-weight: 600;
+  flex-grow: 0;
+}
+
+.match__rr.red{
+  color: red;
+}
+
+.match__rr.green{
+  color: green;
+}
+
+.singleMMR{
+  border: 1px solid black;
+  margin: 20px;
+  border-radius: 7px;
+  color:#fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.singleMMR .rr {
+flex-grow: 0;
+}
+
+.singleMMR > *{
+  flex-grow: 1;
+}
+
+.singleMMR img{
+  width: 48px;
+  flex-grow: 0;
+}
+
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #fff;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
 }

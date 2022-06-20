@@ -10,7 +10,7 @@ const Account = ({data, rank, rr}) => {
             <div className="profile-info">
                 <h3 className="profile-name">{data.name}</h3>
                 <p className="profile-desc">#{data.tag}</p>
-                <h5 class="account-level">{data.account_level}</h5>
+                <h5 className="account-level">{data.account_level}</h5>
             </div>
         </div>
 
@@ -25,6 +25,12 @@ const Account = ({data, rank, rr}) => {
                 <li>
                     <span className="status-text">Current RR: </span>
                     <span className="status-value">{rr}/100</span>
+                </li>
+            </ul>
+            <ul className="status">
+                <li>
+                    <span className="status-text">Last Updated: </span>
+                    <span className="status-value" style={{fontWeight:'400'}}>{data.last_update}</span>
                 </li>
             </ul>
 
