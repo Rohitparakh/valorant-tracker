@@ -14,7 +14,8 @@ const Match = () => {
     const baseURL="https://api.henrikdev.xyz";
     const matchAPI = `${baseURL}/valorant/v2/match/${matchId}`;
     const [headerData, setHeaderData] = useState({});
-    const [mapData, setMapData] = useState({})
+    const [mapData, setMapData] = useState({});
+    const [players, setPlayers] = useState({})
     const getRequest=async (path)=>{
       const result = axios.get(path).then(response=>{
         var result = response.data;
@@ -56,7 +57,6 @@ const Match = () => {
 
     useEffect(() => {
       if(match.status>=200 && match.status<=299){
-
         setHeaderData({
         gameStart: match.data?.metadata?.game_start,
         gameLength: match.data?.metadata?.game_length,
@@ -65,6 +65,28 @@ const Match = () => {
         blueWon: match.data?.teams?.blue.rounds_won,
         redWon: match.data?.teams?.red.rounds_won,
         })
+
+        setPlayers({})
+        match.data.rounds.map((round)=>{
+          //calculations for each round
+          round.player_stats.map((player)=>{
+            let puuid = player.player_puuid
+            if(player.kills>=3){
+              setPlayers(players=>({
+                ...players,
+                [puuid]:{
+                  ...players[puuid],
+                  MK:players[puuid]?.MK+1 || 1
+                }
+              }))
+            }
+          })
+          
+        })
+
+        console.log(players)
+
+        
       }
     }, [match])
 
@@ -101,8 +123,8 @@ useEffect(()=>{
     <div style={{color:'white'}}>
       {loading?<Loader/> :<>
       <MatchHeader data={headerData}/>
-      <TeamStatTable metadata={match.data?.metadata} players={match.data?.players.blue} team="blue" />
-      <TeamStatTable metadata={match.data?.metadata} players={match.data?.players.red} team="red" />
+      <TeamStatTable metadata={match.data?.metadata} playersAdditional={players} players={match.data?.players.blue} team="blue" />
+      <TeamStatTable metadata={match.data?.metadata} playersAdditional={players} players={match.data?.players.red} team="red" />
       </>}      
     </div>
   )

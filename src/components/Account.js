@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Account = ({data, rank, rr}) => {
+const Account = ({data, rank, rankPatched, rr}) => {
   return (
    <div className="profile-card-holder"> 
         <div className="profile-card">
@@ -15,10 +15,11 @@ const Account = ({data, rank, rr}) => {
         </div>
 
         <div className="profile-card-body">
-            <ul className="status">
-                <li>
-                    <span className="status-text">Comp. Rank: </span>
-                    <span className="status-value">{rank}</span>
+            <ul className="status" style={{justifyContent: 'center', alignItems: 'center'}}>
+                <li style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    {/* <span className="status-text">Comp. Rank: </span> */}
+            <span className="flex rank"><img src={`https://trackercdn.com/cdn/tracker.gg/valorant/icons/tiersv2/${rank}.png`} title={rankPatched}/></span>
+                    <span className="status-value">{rankPatched}</span>
                 </li>
             </ul>
             <ul className="status">

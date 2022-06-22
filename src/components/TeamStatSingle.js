@@ -1,11 +1,11 @@
 import React from 'react'
 
-const TeamStatSingle = ({player, roundsPlayed}) => {
-    // console.log(player)
+const TeamStatSingle = ({player, roundsPlayed, playersAdditional}) => {
+    let MK = playersAdditional[player.puuid]?.MK || 0;
   return (
     <tr >
          <td >
-            <a href="/valorant/profile/riot/Sixlrix%23real2" className="">
+            <a href={`/?user=${player.name}&tag=${player.tag}`} className="">
                <div className="flex agent">
                   <div className="agent-icon"><img src={player.assets.agent.small}/></div>
                    
@@ -33,7 +33,7 @@ const TeamStatSingle = ({player, roundsPlayed}) => {
          <td >{(player.stats.headshots / (player.stats.headshots + player.stats.bodyshots + player.stats.legshots) *100).toFixed(0)}</td>
          <td >0</td>
          <td >0</td>
-         <td >0</td>
+         <td >{MK}</td>
          <td >{(player.damage_made / (player.economy.spent.overall/1000)).toFixed(0)}</td>
       </tr>
   )

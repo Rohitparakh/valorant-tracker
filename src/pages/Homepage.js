@@ -5,11 +5,14 @@ import MMR from './../components/MMR';
 import Input from './../components/Input';
 import LastFive from './../components/LastFive';
 import Loader from './../components/Loader';
+import { useSearchParams } from 'react-router-dom';
 
 function Homepage() {
-  const [username, setUsername] = useState("rohitJod");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [username, setUsername] = useState(searchParams.get("user"));
   const [user, setUser] = useState(username);
-  const [tag, setTag] = useState("4324");
+  const [tag, setTag] = useState(searchParams.get("tag")  );
   const [tagline, setTagline] = useState(tag);
   const [region, setRegion]= useState("ap");
   const [mmr, setMmr]= useState({});
@@ -20,7 +23,7 @@ function Homepage() {
   const baseURL="https://api.henrikdev.xyz";
   let accountAPI = `${baseURL}/valorant/v1/account/${user}/${tagline}`;
   let rankedAPI= `${baseURL}/valorant/v1/mmr-history/${region}/${user}/${tagline}`;
-  let lastFiveAPI = `${baseURL}/valorant/v3/matches/${region}/${user}/${tagline}`;
+  let lastFiveAPI = `${baseURL}/valorant/v3/matches/${region}/${user}/${tagline}?filter=competitive`;
   // let lastFiveAPI = `https://api.tracker.gg/api/v2/valorant/standard/matches/riot/${user}%23${tagline}`;
 
 
@@ -60,7 +63,7 @@ function Homepage() {
     setLoading(true);
     setError({error:false,status:200,message:"success"});
     const mmr = await getRequest(rankedAPI);
-    // console.log(mmr);
+    console.log(mmr);
     setMmr(mmr);
 
     const lastFive = await getRequest(lastFiveAPI);
@@ -77,15 +80,18 @@ function Homepage() {
   useEffect(()=>{
     accountAPI = `${baseURL}/valorant/v1/account/${user}/${tagline}`;
     rankedAPI= `${baseURL}/valorant/v1/mmr-history/${region}/${user}/${tagline}`;
-    lastFiveAPI = `${baseURL}/valorant/v3/matches/${region}/${user}/${tagline}`;
+    lastFiveAPI = `${baseURL}/valorant/v3/matches/${region}/${user}/${tagline}?filter=competitive`;
     // lastFiveAPI = `https://api.tracker.gg/api/v2/valorant/standard/matches/riot/${user}%23${tagline}`
-    getData();
-    fetchData();
+    console.log(user)
+    if(user!==null && tagline!==null){
+      getData();
+      fetchData();
+    }    
   },[user,tagline])
   return (
     <div className="App">
       <Input username={username} setUsername={setUsername} tag={tag} setTag={setTag} getData={getData}/>
-      {(account?.status===200 && !loading)?<Account data={account.data} rr={mmr.data[0].ranking_in_tier} rank={mmr?.data[0].currenttierpatched}/>:<></>}
+      {(account?.status===200 && !loading)?<Account data={account.data} rr={mmr.data[0].ranking_in_tier} rank ={mmr?.data[0].currenttier} rankPatched={mmr?.data[0].currenttierpatched}/>:<></>}
       {(lastFive?.status===200 && !loading)?<LastFive mmr={mmr.data.slice(0,5)} data={lastFive} username={user} tag={tagline}/>:<></>}
       {(mmr?.status===200 && !loading)?<MMR data={mmr} username={user} tag={tagline}/>:<></>}      
       {loading?<Loader/> :<></>}

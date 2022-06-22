@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 
 const LastFive = ({data, mmr, username, tag}) => {
-   // console.log(data)
+   // console.log(mmr)
    const navigate = useNavigate();
    function compare( a, b ) {
       if ( a.stats.score > b.stats.score ){
@@ -39,7 +39,6 @@ const LastFive = ({data, mmr, username, tag}) => {
     let allPlayers=val.players.all_players.sort(compare);
     let playerPosition=allPlayers.findIndex(x => x.name ===username);
     playerPosition++;
-   //  console.log(val)
     val.players.all_players.sort( function( a , b){
       if(a > b) return 1;
       if(a < b) return -1;
@@ -49,8 +48,9 @@ const LastFive = ({data, mmr, username, tag}) => {
     let team,current_win, win;
     if(val.metadata.mode!=="Deathmatch"){
       team = playerData.team;
-      team=team.toLowerCase()
+      team=team.toLowerCase();
       current_win = val.teams[`${team}`];
+      console.log(val)
       win = current_win.has_won;
    }
    var date = new Date((val.metadata.game_start) * 1000);

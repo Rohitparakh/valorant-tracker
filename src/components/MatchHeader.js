@@ -3,7 +3,7 @@ import React from 'react'
 const MatchHeader = ({data}) => {
     // console.log(data)
     let duration = data.gameLength;
-    let startTime = new Date(data.gameStart);
+    let startTime = new Date(data.gameStart * 1000);
     let dsc, dmn;
     const getDuration =()=>{
         var durationTotalSeconds = parseInt(Math.floor(duration / 1000), 10);
@@ -12,6 +12,18 @@ const MatchHeader = ({data}) => {
         dsc = parseInt(durationTotalSeconds % 60, 10);
         dmn = parseInt(durationTotalMinutes % 60, 10);
     }    
+
+    const getDateTime =()=>{
+        var hr = startTime.getHours();
+        var mn = startTime.getMinutes();
+
+        var date = startTime.getDate();
+        var month = startTime.getMonth();
+        month++;
+        var year = startTime.getFullYear();
+
+        return (`${date}/${month}/${year}, ${hr}:${mn}`)
+    }
 
     getDuration();
 
@@ -29,7 +41,7 @@ const MatchHeader = ({data}) => {
       <div className="separator">:</div>
       <div className="team team--red"><span className="team__value">{data.redWon}</span> <p className="team__label">Team B</p></div>
    </div>
-   <div className="metadata__time"><p className="metadata__time-duration">{dmn}mn {dsc}s</p> <p className="metadata__time-timestamp">06/21/22, 09:18 PM</p></div>
+   <div className="metadata__time"><p className="metadata__time-duration">{dmn}m {dsc}s</p> <p className="metadata__time-timestamp">{getDateTime()}</p></div>
 </div>
   )
 }
