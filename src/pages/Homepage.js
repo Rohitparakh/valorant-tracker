@@ -7,30 +7,38 @@ import LastFive from './../components/LastFive';
 import Loader from './../components/Loader';
 
 function Homepage() {
-  const [username, setUsername] = useState("rishx");
+  const [username, setUsername] = useState("rohitJod");
   const [user, setUser] = useState(username);
-  const [tag, setTag] = useState("god");
+  const [tag, setTag] = useState("4324");
   const [tagline, setTagline] = useState(tag);
   const [region, setRegion]= useState("ap");
   const [mmr, setMmr]= useState({});
   const [lastFive, setLastFive]= useState({});
   const [account, setAccount]= useState({});
   const [loading, setLoading]= useState(false);
-  const [error, setError]= useState(false);
+  const [error, setError]= useState({error:false,status:200,message:"success"});
   const baseURL="https://api.henrikdev.xyz";
   let accountAPI = `${baseURL}/valorant/v1/account/${user}/${tagline}`;
   let rankedAPI= `${baseURL}/valorant/v1/mmr-history/${region}/${user}/${tagline}`;
   let lastFiveAPI = `${baseURL}/valorant/v3/matches/${region}/${user}/${tagline}`;
+  // let lastFiveAPI = `https://api.tracker.gg/api/v2/valorant/standard/matches/riot/${user}%23${tagline}`;
 
 
   const getRequest=async (path)=>{
     const result = axios.get(path).then(response=>{
       var result = response.data;
+      // console.log(response)
+        if (response.status >= 200 && response.status <= 299) {
+          return result;
+
+        } else {
+          setError({error:true,status:response.status,message:response.statusText})
+        }
       // console.log('Processing Request');
-      return result;
     },
     (error) => {
-            setError(true)
+      // console.log(error)
+            setError({error: true,status:error.response.status,message:error.message})
     }
     )
 
@@ -50,7 +58,7 @@ function Homepage() {
     setAccount({});
     setLastFive({});
     setLoading(true);
-    setError(false);
+    setError({error:false,status:200,message:"success"});
     const mmr = await getRequest(rankedAPI);
     // console.log(mmr);
     setMmr(mmr);
@@ -70,6 +78,7 @@ function Homepage() {
     accountAPI = `${baseURL}/valorant/v1/account/${user}/${tagline}`;
     rankedAPI= `${baseURL}/valorant/v1/mmr-history/${region}/${user}/${tagline}`;
     lastFiveAPI = `${baseURL}/valorant/v3/matches/${region}/${user}/${tagline}`;
+    // lastFiveAPI = `https://api.tracker.gg/api/v2/valorant/standard/matches/riot/${user}%23${tagline}`
     getData();
     fetchData();
   },[user,tagline])
@@ -80,7 +89,7 @@ function Homepage() {
       {(lastFive?.status===200 && !loading)?<LastFive mmr={mmr.data.slice(0,5)} data={lastFive} username={user} tag={tagline}/>:<></>}
       {(mmr?.status===200 && !loading)?<MMR data={mmr} username={user} tag={tagline}/>:<></>}      
       {loading?<Loader/> :<></>}
-      {error?<h1 style={{color:'white'}}>Wrong Username or Tagline</h1>:<></>}
+      {(error.status >= 200 && error.status <= 299)?<></>:<><h1 style={{color:'white'}}>Status code:{error.status}</h1><p style={{color:'white'}}>Error Message: {error.message}</p></>}
     </div>
     
     

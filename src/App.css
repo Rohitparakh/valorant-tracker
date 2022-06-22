@@ -1,3 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins|Roboto"); 
+@font-face { 
+  font-family:Rajdhani;
+  font-style:normal;
+  font-weight:400;
+  font-display:optional;
+  src:local("Rajdhani Regular"),local("Rajdhani-Regular"),url(https://fonts.gstatic.com/s/rajdhani/v8/LDIxapCSOBg7S-QT7p4GM-aUWA.woff2) format("woff2");
+  unicode-range:U+0900-097f,U+1cd0-1cf6,U+1cf8-1cf9,U+200c-200d,U+20a8,U+20b9,U+25cc,U+a830-a839,U+a8e0-a8fb;
+} 
+@font-face { 
+  font-family:Rajdhani;
+  font-style:normal;
+  font-weight:400;
+  font-display:optional;
+  src:local("Rajdhani Regular"),local("Rajdhani-Regular"),url(https://fonts.gstatic.com/s/rajdhani/v8/LDIxapCSOBg7S-QT7p4JM-aUWA.woff2) format("woff2");
+  unicode-range:U+0100-024f,U+0259,U+1e??,U+2020,U+20a0-20ab,U+20ad-20cf,U+2113,U+2c60-2c7f,U+a720-a7ff;
+} 
+@font-face { 
+  font-family:Rajdhani;
+  font-style:normal;
+  font-weight:400;
+  font-display:optional;
+  src:local("Rajdhani Regular"),local("Rajdhani-Regular"),url(https://fonts.gstatic.com/s/rajdhani/v8/LDIxapCSOBg7S-QT7p4HM-Y.woff2) format("woff2");
+  unicode-range:U+00??,U+0131,U+0152-0153,U+02bb-02bc,U+02c6,U+02da,U+02dc,U+2000-206f,U+2074,U+20ac,U+2122,U+2191,U+2193,U+2212,U+2215,U+feff,U+fffd;
+} 
+@font-face { 
+  font-family:Rajdhani;
+  font-style:normal;
+  font-weight:500;
+  font-display:optional;
+  src:local("Rajdhani Medium"),local("Rajdhani-Medium"),url(https://fonts.gstatic.com/s/rajdhani/v8/LDI2apCSOBg7S-QT7pb0EPOqeef2kg.woff2) format("woff2");
+  unicode-range:U+0900-097f,U+1cd0-1cf6,U+1cf8-1cf9,U+200c-200d,U+20a8,U+20b9,U+25cc,U+a830-a839,U+a8e0-a8fb;
+} 
+@font-face { 
+  font-family:Rajdhani;
+  font-style:normal;
+  font-weight:500;
+  font-display:optional;
+  src:local("Rajdhani Medium"),local("Rajdhani-Medium"),url(https://fonts.gstatic.com/s/rajdhani/v8/LDI2apCSOBg7S-QT7pb0EPOleef2kg.woff2) format("woff2");
+  unicode-range:U+0100-024f,U+0259,U+1e??,U+2020,U+20a0-20ab,U+20ad-20cf,U+2113,U+2c60-2c7f,U+a720-a7ff;
+} 
+@font-face { 
+  font-family:Rajdhani;
+  font-style:normal;
+  font-weight:500;
+  font-display:optional;
+  src:local("Rajdhani Medium"),local("Rajdhani-Medium"),url(https://fonts.gstatic.com/s/rajdhani/v8/LDI2apCSOBg7S-QT7pb0EPOreec.woff2) format("woff2");
+  unicode-range:U+00??,U+0131,U+0152-0153,U+02bb-02bc,U+02c6,U+02da,U+02dc,U+2000-206f,U+2074,U+20ac,U+2122,U+2191,U+2193,U+2212,U+2215,U+feff,U+fffd;
+} 
+@font-face { 
+  font-family:Rajdhani;
+  font-style:normal;
+  font-weight:700;
+  font-display:optional;
+  src:local("Rajdhani Bold"),local("Rajdhani-Bold"),url(https://fonts.gstatic.com/s/rajdhani/v8/LDI2apCSOBg7S-QT7pa8FvOqeef2kg.woff2) format("woff2");
+  unicode-range:U+0900-097f,U+1cd0-1cf6,U+1cf8-1cf9,U+200c-200d,U+20a8,U+20b9,U+25cc,U+a830-a839,U+a8e0-a8fb;
+} 
+@font-face { 
+  font-family:Rajdhani;
+  font-style:normal;
+  font-weight:700;
+  font-display:optional;
+  src:local("Rajdhani Bold"),local("Rajdhani-Bold"),url(https://fonts.gstatic.com/s/rajdhani/v8/LDI2apCSOBg7S-QT7pa8FvOleef2kg.woff2) format("woff2");
+  unicode-range:U+0100-024f,U+0259,U+1e??,U+2020,U+20a0-20ab,U+20ad-20cf,U+2113,U+2c60-2c7f,U+a720-a7ff;
+} 
+@font-face { 
+  font-family:Rajdhani;
+  font-style:normal;
+  font-weight:700;
+  font-display:optional;
+  src:local("Rajdhani Bold"),local("Rajdhani-Bold"),url(https://fonts.gstatic.com/s/rajdhani/v8/LDI2apCSOBg7S-QT7pa8FvOreec.woff2) format("woff2");
+  unicode-range:U+00??,U+0131,U+0152-0153,U+02bb-02bc,U+02c6,U+02da,U+02dc,U+2000-206f,U+2074,U+20ac,U+2122,U+2191,U+2193,U+2212,U+2215,U+feff,U+fffd;
+} 
+* { 
+    box-sizing: border-box; 
+    outline: none; 
+    scrollbar-color: var(--foreground-color-medium-contrast) var(--foreground-color); 
+    -webkit-tap-highlight-color: transparent;
+    margin: 0;
+    padding: 0;
+} 
+
+
 .App {
   text-align: center;
 }
@@ -37,16 +122,6 @@
   }
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
-
-*,
-*::after,
-*::before {
-	font-family: "Poppins", sans-serif;
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
 
 .profile-card-holder {
 	display: flex;
@@ -152,7 +227,6 @@
   border-radius: 50%;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {
   width: 360px;
@@ -280,6 +354,7 @@ background: linear-gradient(to right, rgba(0,255,0,0.2),#0c0f0c);
 .match__details{
   display: flex;
   flex-direction: column;
+  flex-grow: 0;
 }
 
 .match__subtitle{
@@ -339,9 +414,6 @@ body{
   padding:10px
 }
 
-.match__details{
-  width: 330px;
-}
 
 .match__rr{
   background-color: #1a1a1a;
@@ -420,3 +492,461 @@ flex-grow: 0;
     height: 32px;
   }
 }
+
+.score--won, .score--lost{
+  font-size: 1.7em;
+  font-weight: 700;
+}
+
+.badge{
+  background: #4d4c4c;
+}
+
+.match__header{
+  /* background-repeat: no-repeat;
+  background-size: cover; */
+  max-height: 120px;
+  background-image: linear-gradient(90deg,rgba(15, 25, 35, 0.85),rgba(15, 25, 35, 0.5)),var(--map-image-url);
+    background-size: cover;
+    background-position: 50%;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: min-content min-content min-content;
+    grid-template-rows: 100%;
+    min-width: 512px;
+    padding: 1rem;
+
+}
+
+.metadata__playlist,.metadata__score,.metadata__time,.metadata__playlist-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.metadata__time,.metadata__playlist-text{
+  flex-direction: column;
+}
+
+.metadata__score{
+  text-align: center;
+}
+
+.metadata__time-duration, .metadata__time-timestamp{
+  width: max-content;
+
+}
+
+.metadata__score .team {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.5rem;
+  align-items: center;
+  text-align: center;
+}
+
+.metadata__score .team__value {
+  font-family: Rajdhani,Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen-Sans,Ubuntu,Cantarell,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.metadata__score .team__label {
+  font-size: .875rem;
+  font-weight: 900;
+  width: max-content;
+}
+
+.team.team--red{
+  color: #ff4655;
+}
+.team.team--blue{
+  color:#00eab1;
+}
+
+.metadata__time-duration {
+  font-size: 2rem;
+  font-family: Rajdhani,Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen-Sans,Ubuntu,Cantarell,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-weight: 500;
+  margin: 0;
+}
+
+.metadata__time-timestamp {
+  font-size: .875rem;
+  color: #99ABBF;
+}
+
+.metadata__playlist-map{
+  font-family: Rajdhani,Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen-Sans,Ubuntu,Cantarell,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.metadata__playlist-mode{
+  font-size: .875rem;
+  color: #99ABBF;
+  font-weight: 500;
+}
+
+.metadata__playlist-icon {
+  height: 3rem;
+  width: 3rem;
+  margin-right: 1rem;
+}
+
+
+
+
+
+
+
+.scoreboard__table { 
+    min-width: 1024px;
+} 
+
+.card { 
+    background-color: var(--foreground-color); 
+    border-radius: var(--border-radius); 
+    box-shadow: 0 6px 6px 0 rgba(0,0,0,.16); 
+    margin: .75rem; 
+    overflow: hidden;
+} 
+
+.no-card-margin .card { 
+    margin: 0;
+} 
+
+.card.bordered { 
+    border: 1px solid var(--foreground-border-color);
+} 
+
+.card  { 
+    scrollbar-width: none; 
+    -ms-overflow-style: -ms-autohiding-scrollbar; 
+    overflow-x: auto;
+} 
+
+.trn-grid { 
+    display: grid; 
+    grid-gap: 1.5rem;
+} 
+
+.trn-grid--small { 
+    grid-gap: 1rem;
+} 
+
+.site-container { 
+    max-width: 1400px; 
+    width: calc(100% - 2rem); 
+    margin: 1rem auto;
+} 
+
+.trn-content > main { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: stretch; 
+    flex: 1; 
+    min-height: 100%;
+} 
+
+.trn-content { 
+    display: flex; 
+    flex-direction: column; 
+    position: relative; 
+    min-height: calc(100vh - 5rem);
+} 
+
+.trn-container { 
+    background-color: var(--background-color); 
+    flex-grow: 1; 
+    max-width: 100vw;
+} 
+
+.trn-wrapper { 
+    display: flex; 
+    flex: 1; 
+    position: relative; 
+    top: 0; 
+    flex-direction: column;
+} 
+
+#app { 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh;
+} 
+
+body { 
+    margin:   0; 
+    padding:  0; 
+    height:  100vh; 
+    width:  100%;
+    background-image: linear-gradient(180deg,var(--game-bar-background-color) 0,var(--game-bar-background-color) 50%,var(--background-color) 0,var(--background-color)); 
+    color: var(--text-color); 
+    font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen-Sans,Ubuntu,Cantarell,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol; 
+    font-size: .9375rem; 
+    font-weight: 400; 
+    -webkit-overflow-scrolling: touch; 
+    overscroll-behavior-y: none; 
+    overflow-x: hidden; 
+    overflow-y: scroll;
+} 
+
+html { 
+    line-height:   1.15; 
+    -webkit-text-size-adjust:   100%;
+    background:  var(--background-color); 
+    margin:  0; 
+    padding:  0; 
+    height:  100vh; 
+    width:  100%;
+    font-size: 16px;
+} 
+
+:root { 
+    --color-accent-high-contrast:  #FF4655; 
+    --color-accent-high-contrast-opacity-16:  rgba(255, 70, 85, 0.16); 
+    --background-color:  #0F141A; 
+    --foreground-color:  #0F1923; 
+    --foreground-color-medium-contrast:  #263747; 
+    --foreground-border-color:  #1B2733; 
+    --border-radius:  0.25rem; 
+    --text-color:  #efefef; 
+    --text-color-opacity-16:  rgba(239, 239, 239, 0.16); 
+    --game-bar-background-color:  #141414; 
+} 
+
+.valorant-table { 
+    table-layout: fixed; 
+    border-collapse: separate; 
+    border-spacing: 0 2px; 
+    width: 100%; 
+    font-weight: 500; 
+    font-size: 1.125rem;
+} 
+
+.valorant-table--1 thead.blue { 
+    --team-color: #00eab1; 
+    --team-background-color: #00554d; 
+} 
+
+.valorant-table--1 thead.red { 
+    --team-color: #ff294e; 
+    --team-background-color: #52222f; 
+} 
+
+:-webkit-scrollbar { 
+    background-color: var(--foreground-color);
+} 
+
+:-webkit-scrollbar-thumb { 
+    background-color: var(--foreground-color-medium-contrast);
+} 
+
+th  { 
+    background-color: var(--team-background-color); 
+    font-weight: 500; 
+    font-size: .875rem; 
+    padding: .5rem 1rem; 
+    text-align: center;
+} 
+
+th:first-of-type  { 
+    color: var(--team-color); 
+    line-height: 1em; 
+    text-align: left;
+} 
+
+tbody td  { 
+    padding: .5rem .625rem; 
+    border: none; 
+    border-bottom: 1px solid hsla(0,0%,100%,.1); 
+    text-align: center; 
+    cursor: pointer; 
+    white-space: nowrap;
+} 
+
+tbody td:first-of-type  { 
+    position: relative; 
+    text-align: left; 
+    background-image: linear-gradient(90deg,var(--team-background-color),transparent 40%);
+} 
+
+tbody td:first-of-type:before  { 
+    content: ""; 
+    position: absolute; 
+    height: calc(100% + 1px); 
+    width: 2px; 
+    top: 0; 
+    left: 0; 
+    background-color: var(--team-color);
+} 
+
+tbody td.positive  { 
+    color: #5ee790;
+} 
+
+tbody td.negative  { 
+    color: #e4485d;
+} 
+
+.dropdown { 
+    display: inline-block; 
+    background: none; 
+    cursor: pointer; 
+    position: relative; 
+    user-select: none; 
+    outline: none;
+} 
+
+a { 
+    background-color: transparent;
+} 
+
+a[href] { 
+    color:  inherit; 
+    text-underline-position:  under;
+    cursor: pointer;
+} 
+
+tbody td a  { 
+    text-decoration: none;
+} 
+
+.flex  { 
+    align-items: center; 
+    display: flex;
+} 
+
+.rank  { 
+    gap: .25rem; 
+    justify-content: center;
+} 
+
+.dropdown__items { 
+    background-color: var(--foreground-color-medium-contrast); 
+    color: var(--text-color); 
+    font-size: .875rem; 
+    font-weight: 500; 
+    list-style-type: none; 
+    margin: .375rem 0 0; 
+    padding: 0; 
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    height: 0; 
+    width: 18rem; 
+    border-radius: var(--border-radius,.5rem); 
+    z-index: 10; 
+    position: absolute; 
+    box-shadow: 0 6px 6px 0 rgba(0,0,0,.16); 
+    white-space: nowrap; 
+    scrollbar-width: thin;
+} 
+
+a[href] > *  { 
+    cursor: pointer;
+} 
+
+.agent  { 
+    font-family: Rajdhani,Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen-Sans,Ubuntu,Cantarell,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+} 
+
+img { 
+    border-style: none;
+} 
+
+.rank img  { 
+    height: 2rem; 
+    width: 2rem;
+} 
+
+th .icon  { 
+    fill: #fff; 
+    height: 1rem; 
+    width: 1rem;
+} 
+
+.dropdown__items li  { 
+    padding: .5rem 0; 
+    line-height: .875rem;
+} 
+
+.dropdown__items li:first-of-type  { 
+    margin-top: .5rem;
+} 
+
+.dropdown__items li.dropdown__item  { 
+    display: flex; 
+    border-left: .125rem solid transparent; 
+    padding: .75rem .25rem .75rem 1.25rem; 
+    line-height: 1.5rem;
+} 
+
+.dropdown__items li.dropdown__item:active ,.dropdown__items li.dropdown__item:hover  { 
+    background-color: var(--color-accent-high-contrast-opacity-16); 
+    border-left-color: var(--color-accent-high-contrast);
+} 
+
+.dropdown__items li:last-of-type  { 
+    margin-bottom: .5rem;
+} 
+
+.agent-icon  { 
+    display: inline-block; 
+    height: 2.5rem; 
+    width: 2.5rem; 
+    margin-right: .5rem;
+} 
+
+.trn-ign { 
+    display: inline-flex; 
+    color: currentColor; 
+    white-space: nowrap;
+} 
+
+.trn-ign{ 
+    display: flex; 
+    align-items: center; 
+    max-width: 100%;
+} 
+
+.party  { 
+    flex-shrink: 0; 
+    fill: #fff; 
+    margin-right: .25rem; 
+    width: 1.5rem;
+} 
+
+.agent-icon > img  { 
+    border-radius: var(--border-radius); 
+    height: 2.5rem; 
+    width: 2.5rem;
+} 
+
+.trn-ign__username { 
+    line-height: 1em;
+} 
+
+.trn-ign__username{ 
+    display: inline-block;
+} 
+
+.trn-ign__discriminator { 
+    background-color: var(--text-color-opacity-16); 
+    color: currentColor; 
+    font-size: .7em; 
+    font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen-Sans,Ubuntu,Cantarell,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol; 
+    font-weight: 500; 
+    padding: 0 .25em; 
+    border-radius: .125em; 
+    line-height: 1.5em; 
+    opacity: .75; 
+    margin-left: .25em;
+} 
+
+.trn-ign__discriminator{ 
+    flex-shrink: 0; 
+    display: inline-block;
+} 
+
+

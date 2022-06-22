@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 
 const LastFive = ({data, mmr, username, tag}) => {
+   // console.log(data)
    const navigate = useNavigate();
    function compare( a, b ) {
       if ( a.stats.score > b.stats.score ){
@@ -52,9 +53,16 @@ const LastFive = ({data, mmr, username, tag}) => {
       current_win = val.teams[`${team}`];
       win = current_win.has_won;
    }
-
-   let ADR = playerData.damage_made / val.metadata.rounds_played;
-   // console.log(playerData.stats.headshots/(playerData.stats.headshots+playerData.stats.bodyshots+playerData.stats.legshots)*100)
+   var date = new Date((val.metadata.game_start) * 1000);
+   var hr = date.getHours();
+   var mn = date.getMinutes();
+   // Seconds part from the timestamp
+   var dd = date.getDate();
+   var mm = date.getMonth();
+   var yyyy = date.getFullYear();
+   
+   let ADR = playerData.damage_made / val.metadata.rounds_played;   
+   let ACS = (playerData.stats.score/val.metadata.rounds_played).toFixed(0);
    let HS = playerData.stats.headshots / (playerData.stats.headshots + playerData.stats.bodyshots + playerData.stats.legshots) *100;
         return(
             <div onClick={()=>navigate(`/match/${val.metadata.matchid}`)} key={val.metadata.matchid} className={win?"match team-won":"match team-lost"}>
@@ -63,7 +71,7 @@ const LastFive = ({data, mmr, username, tag}) => {
           <img data-v-7c8e0719="" src={playerData.assets.agent.small}/></div>
           {(val.metadata.mode!=="Deathmatch")?<div className={`match__rr ${mmr[i].mmr_change_to_last_game>0?"green":"red"}`}>{mmr[i].mmr_change_to_last_game>0?`+${mmr[i].mmr_change_to_last_game}`:`${mmr[i].mmr_change_to_last_game}`} RR</div>:null}
       <div className="match__details">
-         <div className="match__title"><span data-v-7c8e0719="" className="match__name">{val.metadata.map}</span> <p data-v-7c8e0719="" className="match__time">{val.metadata.game_start_patched}</p></div>
+         <div className="match__title"><span data-v-7c8e0719="" className="match__name">{val.metadata.map}</span> <p data-v-7c8e0719="" className="match__time">{`${dd}/${mm}/${yyyy} ${hr}:${mn}`}</p></div>
          <div className="match__subtitle">
              <img data-v-7c8e0719="" src="https://trackercdn.com/cdn/tracker.gg/valorant/icons/modes/normal.png" className="match__mode-icon"/>
             {val.metadata.mode}
@@ -102,7 +110,7 @@ const LastFive = ({data, mmr, username, tag}) => {
         ):null}
          <div data-v-7c8e0719="" className="stat collapse">
             <div data-v-7c8e0719="" className="label">ACS</div>
-            <div data-v-7c8e0719="" className="value">{(playerData.stats.score/val.metadata.rounds_played).toFixed(0)}</div>
+            <div data-v-7c8e0719="" className="value">{ACS}</div>
          </div>
       </div>
       <a href="/valorant/match/f4dc1e04-f4de-406f-9414-2144b885c862?handle=rohitJod%234324" className="match__link"></a>
