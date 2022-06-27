@@ -63,7 +63,7 @@ function Homepage() {
     setLoading(true);
     setError({error:false,status:200,message:"success"});
     const mmr = await getRequest(rankedAPI);
-    console.log(mmr);
+    // console.log(mmr);
     setMmr(mmr);
 
     const lastFive = await getRequest(lastFiveAPI);
@@ -82,7 +82,7 @@ function Homepage() {
     rankedAPI= `${baseURL}/valorant/v1/mmr-history/${region}/${user}/${tagline}`;
     lastFiveAPI = `${baseURL}/valorant/v3/matches/${region}/${user}/${tagline}?filter=competitive`;
     // lastFiveAPI = `https://api.tracker.gg/api/v2/valorant/standard/matches/riot/${user}%23${tagline}`
-    console.log(user)
+    // console.log(user)
     if(user!==null && tagline!==null){
       getData();
       fetchData();

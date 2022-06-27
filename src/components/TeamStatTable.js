@@ -3,7 +3,8 @@ import TeamStatSingle from './TeamStatSingle'
 import TeamStatTableHead from './TeamStatTableHead'
 
 const TeamStatTable = ({players, metadata, team, playersAdditional}) => {
-  console.log(playersAdditional)
+    // console.log({playersAdditional})
+    players?.sort((a,b) => b.stats.score - a.stats.score);
     return (
     <>
     <table className="valorant-table valorant-table--1">

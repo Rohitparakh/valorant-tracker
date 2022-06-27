@@ -50,7 +50,7 @@ const LastFive = ({data, mmr, username, tag}) => {
       team = playerData.team;
       team=team.toLowerCase();
       current_win = val.teams[`${team}`];
-      console.log(val)
+      // console.log(val)
       win = current_win.has_won;
    }
    var date = new Date((val.metadata.game_start) * 1000);

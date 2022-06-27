@@ -2,6 +2,8 @@ import React from 'react'
 
 const TeamStatSingle = ({player, roundsPlayed, playersAdditional}) => {
     let MK = playersAdditional[player.puuid]?.MK || 0;
+    let FD = playersAdditional[player.puuid]?.FD || 0;
+    let FK = playersAdditional[player.puuid]?.FK || 0;
   return (
     <tr >
          <td >
@@ -31,8 +33,8 @@ const TeamStatSingle = ({player, roundsPlayed, playersAdditional}) => {
          <td >{(player.stats.kills / player.stats.deaths).toFixed(1)}</td>
          <td >{(player.damage_made / roundsPlayed).toFixed(1)}</td>
          <td >{(player.stats.headshots / (player.stats.headshots + player.stats.bodyshots + player.stats.legshots) *100).toFixed(0)}</td>
-         <td >0</td>
-         <td >0</td>
+         <td >{FK}</td>
+         <td >{FD}</td>
          <td >{MK}</td>
          <td >{(player.damage_made / (player.economy.spent.overall/1000)).toFixed(0)}</td>
       </tr>

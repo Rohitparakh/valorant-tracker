@@ -5,6 +5,7 @@ import axios from 'axios';
 import MatchHeader from '../components/MatchHeader';
 import TeamStatTable from '../components/TeamStatTable';
 import Loader from '../components/Loader';
+import Rounds from '../components/Rounds';
 
 const Match = () => {
     let { matchId } = useParams();
@@ -15,7 +16,8 @@ const Match = () => {
     const matchAPI = `${baseURL}/valorant/v2/match/${matchId}`;
     const [headerData, setHeaderData] = useState({});
     const [mapData, setMapData] = useState({});
-    const [players, setPlayers] = useState({})
+    const [players, setPlayers] = useState({});
+    const [kills, setKills] = useState({});
     const getRequest=async (path)=>{
       const result = axios.get(path).then(response=>{
         var result = response.data;
@@ -44,7 +46,8 @@ const Match = () => {
       setError({error:false,status:200,message:"success"});
 
       const match = await getRequest(matchAPI);
-      console.log(match);
+      // console.log(match);
+      // console.log(match.data.kills);
       setMatch(match);
 
       const maps = await getRequest('https://valorant-api.com/v1/maps');
@@ -80,15 +83,92 @@ const Match = () => {
                 }
               }))
             }
-          })
-          
+          })          
         })
+      
+        setKills({})
+        let roundsPlayed=match.data?.metadata.rounds_played;
+          //calculations for each round
+          //   match.data.kills.map((kill,j)=>{
+          // for (let i = 0; i < roundsPlayed; i++) {
+          //     if(i===kill.round){
+          //       setKills(kills=>({...kills,
+          //       [kill.round]:{
+          //         ...kills[kill.round],
+          //         FK:kill.killer_puuid
+          //       }}))
 
-        console.log(players)
+          //       setKills(kills=>({...kills,
+          //         [kill.round]:{
+          //           ...kills[kill.round],
+          //           FD:kill.victim_puuid
+          //         }}))
+                  
+          //     continue;
+          //   }
+
+          // }
+               
+          //   })            
+          
+            for (let i = 0; i < roundsPlayed; i++) {
+              let roundSet=false;
+              match.data.kills.map((kill,j)=>{
+                if(i===kill.round && roundSet===false){
+                  setKills(kills=>({...kills,
+                  [kill.round]:{
+                    ...kills[kill.round],
+                    FK:kill.killer_puuid
+                  }}))
+  
+                  setKills(kills=>({...kills,
+                    [kill.round]:{
+                      ...kills[kill.round],
+                      FD:kill.victim_puuid
+                    }}))
+                    roundSet=true
+                return;              
+              }
+            })
+  
+            }
+                 
+
+          // console.log(kills)
+        
+
+        // console.log(players)
 
         
       }
     }, [match])
+
+    useEffect(()=>{
+      
+      Object.values(kills).map((kill)=>{
+        setPlayers(players=>({
+          ...players,
+          [kill['FK']]:{
+            ...players[kill['FK']],
+            FK:players[kill['FK']]?.FK+1 || 1,
+          }
+        }))
+        
+        setPlayers(players=>({
+          ...players,
+          [kill['FD']]:{
+            ...players[kill['FD']],
+            FD:players[kill['FD']]?.FD+1 || 1,
+          }
+        }))
+
+      })
+    },[kills])
+
+    useEffect(()=>{
+// console.log(players)
+
+    },[players])
 
     useEffect(() => {
       if(mapData.status>=200 && mapData.status<=299){
@@ -123,6 +203,7 @@ useEffect(()=>{
     <div style={{color:'white'}}>
       {loading?<Loader/> :<>
       <MatchHeader data={headerData}/>
+      {/* <Rounds data={match.data?.rounds}/> */}
       <TeamStatTable metadata={match.data?.metadata} playersAdditional={players} players={match.data?.players.blue} team="blue" />
       <TeamStatTable metadata={match.data?.metadata} playersAdditional={players} players={match.data?.players.red} team="red" />
       </>}      
