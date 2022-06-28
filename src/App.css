@@ -949,4 +949,24 @@ th .icon  {
     display: inline-block;
 } 
 
+.rounds{
+  display: flex;
+  gap: 5px;
+  padding: 10px 0;
+}
 
+.round{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img.round_win{
+  max-height: 30px;
+}
+
+span.round_num{
+  font-size: 12px;
+  margin-top: 5px;
+}

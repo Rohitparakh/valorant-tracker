@@ -203,7 +203,7 @@ useEffect(()=>{
     <div style={{color:'white'}}>
       {loading?<Loader/> :<>
       <MatchHeader data={headerData}/>
-      {/* <Rounds data={match.data?.rounds}/> */}
+      <Rounds rounds={match.data?.rounds}/>
       <TeamStatTable metadata={match.data?.metadata} playersAdditional={players} players={match.data?.players.blue} team="blue" />
       <TeamStatTable metadata={match.data?.metadata} playersAdditional={players} players={match.data?.players.red} team="red" />
       </>}      
