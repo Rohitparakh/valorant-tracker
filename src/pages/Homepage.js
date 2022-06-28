@@ -50,8 +50,8 @@ function Homepage() {
 
   const getData=async()=>{
     setLoading(true);
-    setUser(username);
-    setTagline(tag);
+    setUser(username.trim());
+    setTagline(tag.trim());
     
    
   }
