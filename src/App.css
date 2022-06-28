@@ -970,3 +970,36 @@ span.round_num{
   font-size: 12px;
   margin-top: 5px;
 }
+
+.header{
+  display: flex;
+}
+
+.header a{
+  text-decoration: none;
+}
+
+.logo{
+  padding: 20px;
+}
+
+.header .name{
+  padding: 20px;
+}
+
+.react-tabs__tab:focus:after{
+  background: transparent;
+}
+
+.react-tabs__tab-list{
+  margin: 0;
+}
+
+.overview_table{
+  width: 50%;
+}
+
+/* td{
+  white-space:nowrap;
+  width: 1px;
+} */
