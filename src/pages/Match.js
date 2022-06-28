@@ -6,6 +6,10 @@ import MatchHeader from '../components/MatchHeader';
 import TeamStatTable from '../components/TeamStatTable';
 import Loader from '../components/Loader';
 import Rounds from '../components/Rounds';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import Scorecard from '../components/Scorecard';
+import Overview from '../components/Overview';
+import Duels from '../components/Duels';
 
 const Match = () => {
     let { matchId } = useParams();
@@ -88,28 +92,6 @@ const Match = () => {
       
         setKills({})
         let roundsPlayed=match.data?.metadata.rounds_played;
-          //calculations for each round
-          //   match.data.kills.map((kill,j)=>{
-          // for (let i = 0; i < roundsPlayed; i++) {
-          //     if(i===kill.round){
-          //       setKills(kills=>({...kills,
-          //       [kill.round]:{
-          //         ...kills[kill.round],
-          //         FK:kill.killer_puuid
-          //       }}))
-
-          //       setKills(kills=>({...kills,
-          //         [kill.round]:{
-          //           ...kills[kill.round],
-          //           FD:kill.victim_puuid
-          //         }}))
-                  
-          //     continue;
-          //   }
-
-          // }
-               
-          //   })            
           
             for (let i = 0; i < roundsPlayed; i++) {
               let roundSet=false;
@@ -202,10 +184,24 @@ useEffect(()=>{
   return (
     <div style={{color:'white'}}>
       {loading?<Loader/> :<>
-      <MatchHeader data={headerData}/>
-      <Rounds rounds={match.data?.rounds}/>
-      <TeamStatTable metadata={match.data?.metadata} playersAdditional={players} players={match.data?.players.blue} team="blue" />
-      <TeamStatTable metadata={match.data?.metadata} playersAdditional={players} players={match.data?.players.red} team="red" />
+      <Tabs>
+    <TabList>
+      <Tab>Scoreboard</Tab>
+      <Tab>Overview</Tab>
+      <Tab>Duels</Tab>
+    </TabList>
+
+    <TabPanel>
+      <Scorecard headerData={headerData} match={match} players={players} />      
+    </TabPanel>
+    <TabPanel>
+      <Overview headerData={headerData} match={match} players={players} />
+    </TabPanel>
+    <TabPanel>
+      <Duels headerData={headerData}/>
+    </TabPanel>
+  </Tabs>
+      
       </>}      
     </div>
   )

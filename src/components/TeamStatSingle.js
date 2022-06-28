@@ -1,13 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-const TeamStatSingle = ({player, roundsPlayed, playersAdditional}) => {
+const TeamStatSingle = ({player, roundsPlayed, playersAdditional, isShort}) => {
     let MK = playersAdditional[player.puuid]?.MK || 0;
     let FD = playersAdditional[player.puuid]?.FD || 0;
     let FK = playersAdditional[player.puuid]?.FK || 0;
   return (
     <tr >
          <td >
-            <a href={`/?user=${player.name}&tag=${player.tag}`} className="">
+            <Link to={`/?user=${player.name}&tag=${player.tag}`} className="">
                <div className="flex agent">
                   <div className="agent-icon"><img src={player.assets.agent.small}/></div>
                    
@@ -19,7 +20,7 @@ const TeamStatSingle = ({player, roundsPlayed, playersAdditional}) => {
                      </span> 
                   </span>
                </div>
-            </a>
+            </Link>
          </td>
          <td >
             <div className="flex rank"><img src={`https://trackercdn.com/cdn/tracker.gg/valorant/icons/tiersv2/${player.currenttier}.png`} title={player.currenttier_patched}/></div>
@@ -29,6 +30,7 @@ const TeamStatSingle = ({player, roundsPlayed, playersAdditional}) => {
          <td >{player.stats.kills}</td>
          <td >{player.stats.deaths}</td>
          <td >{player.stats.assists}</td>
+         {isShort?<></>:<>
          <td className={player.stats.kills==player.stats.deaths?"neutral":(player.stats.kills>player.stats.deaths?"positive":"negative")}>{player.stats.kills>player.stats.deaths?"+":""}{player.stats.kills - player.stats.deaths}</td>
          <td >{(player.stats.kills / player.stats.deaths).toFixed(1)}</td>
          <td >{(player.damage_made / roundsPlayed).toFixed(1)}</td>
@@ -37,6 +39,7 @@ const TeamStatSingle = ({player, roundsPlayed, playersAdditional}) => {
          <td >{FD}</td>
          <td >{MK}</td>
          <td >{(player.damage_made / (player.economy.spent.overall/1000)).toFixed(0)}</td>
+         </>}         
       </tr>
   )
 }
