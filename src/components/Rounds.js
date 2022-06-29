@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Rounds = ({rounds}) => {
-  console.log(rounds)
+  // console.log(rounds)
   return (
     <div className='rounds'>
       {rounds?.map((round, i)=>{

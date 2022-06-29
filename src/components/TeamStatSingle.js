@@ -1,15 +1,25 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const TeamStatSingle = ({player, roundsPlayed, playersAdditional, isShort}) => {
+const TeamStatSingle = ({player, roundsPlayed, playersAdditional, isShort, revealAgent}) => {
     let MK = playersAdditional[player.puuid]?.MK || 0;
     let FD = playersAdditional[player.puuid]?.FD || 0;
     let FK = playersAdditional[player.puuid]?.FK || 0;
+    const navigate = useNavigate();
+
+    const agentClick = ()=>{
+       if(isShort){
+          revealAgent(player.puuid);
+       } else {
+         navigate(`/?user=${player.name}&tag=${player.tag}`);
+
+       }
+    }
+
   return (
     <tr >
          <td >
-            <Link to={`/?user=${player.name}&tag=${player.tag}`} className="">
-               <div className="flex agent">
+               <div className="flex agent" onClick={()=>agentClick()}>
                   <div className="agent-icon"><img src={player.assets.agent.small}/></div>
                    
                   <span data-v-5e03e686="" className="trn-ign">
@@ -20,7 +30,6 @@ const TeamStatSingle = ({player, roundsPlayed, playersAdditional, isShort}) => {
                      </span> 
                   </span>
                </div>
-            </Link>
          </td>
          <td >
             <div className="flex rank"><img src={`https://trackercdn.com/cdn/tracker.gg/valorant/icons/tiersv2/${player.currenttier}.png`} title={player.currenttier_patched}/></div>

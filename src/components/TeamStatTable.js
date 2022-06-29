@@ -2,7 +2,7 @@ import React from 'react'
 import TeamStatSingle from './TeamStatSingle'
 import TeamStatTableHead from './TeamStatTableHead'
 
-const TeamStatTable = ({players, metadata, team, playersAdditional, isShort}) => {
+const TeamStatTable = ({players, metadata, team, playersAdditional, isShort, revealAgent}) => {
     // console.log({playersAdditional})
     players?.sort((a,b) => b.stats.score - a.stats.score);
     return (
@@ -11,7 +11,7 @@ const TeamStatTable = ({players, metadata, team, playersAdditional, isShort}) =>
    <TeamStatTableHead team={team} isShort={isShort}/>
    <tbody >
        {players?.map((player)=>{
-           return <TeamStatSingle playersAdditional={playersAdditional} roundsPlayed={metadata.rounds_played} player={player} key={player.puuid} isShort={isShort}/>
+           return <TeamStatSingle playersAdditional={playersAdditional} roundsPlayed={metadata.rounds_played} player={player} key={player.puuid} isShort={isShort} revealAgent={revealAgent} />
        })}      
    </tbody>
 </table>
