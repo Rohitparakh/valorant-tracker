@@ -6,8 +6,9 @@ import AgentReveal from './AgentReveal';
 const Overview = ({headerData, match, players}) => {
 
     const [revealedAgent, setRevealedAgent] = useState(null);
+    const [revealedAgentTeam, setRevealedAgentTeam] = useState(null);
     const [revealedAgentAdditional, setRevealedAgentAdditional] = useState(null);
-    const revealAgent = (id) =>{
+    const revealAgent = (id,team) =>{
         // console.log("reveal agent"+id);
         let agent = match?.data.players.all_players.filter((player)=>{
             return player.puuid === id;
@@ -17,6 +18,7 @@ const Overview = ({headerData, match, players}) => {
 
         setRevealedAgent(agent);
         setRevealedAgentAdditional(agentAdditional[id]);
+        setRevealedAgentTeam(team);
     }
 console.log(revealedAgent)
   return (
@@ -27,7 +29,7 @@ console.log(revealedAgent)
                 <TeamStatTable metadata={match.data?.metadata} playersAdditional={players} players={match.data?.players.blue} team="blue" isShort={true} revealAgent={revealAgent} />
                 <TeamStatTable metadata={match.data?.metadata} playersAdditional={players} players={match.data?.players.red} team="red" isShort={true} revealAgent={revealAgent} />
             </div>
-            {revealedAgent!==null?<AgentReveal agent={revealedAgent?.[0]} match={match} agentAdditional={revealedAgentAdditional}/>:<></>}
+            {revealedAgent!==null?<AgentReveal agent={revealedAgent?.[0]} match={match} agentAdditional={revealedAgentAdditional} team={revealedAgentTeam}/>:<></>}
                 
         </div>    
     </>

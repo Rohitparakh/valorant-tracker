@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const TeamStatSingle = ({player, roundsPlayed, playersAdditional, isShort, revealAgent}) => {
+const TeamStatSingle = ({player, roundsPlayed, playersAdditional, isShort, revealAgent, team}) => {
     let MK = playersAdditional[player.puuid]?.MK || 0;
     let FD = playersAdditional[player.puuid]?.FD || 0;
     let FK = playersAdditional[player.puuid]?.FK || 0;
@@ -9,7 +9,7 @@ const TeamStatSingle = ({player, roundsPlayed, playersAdditional, isShort, revea
 
     const agentClick = ()=>{
        if(isShort){
-          revealAgent(player.puuid);
+          revealAgent(player.puuid,team);
        } else {
          navigate(`/?user=${player.name}&tag=${player.tag}`);
 

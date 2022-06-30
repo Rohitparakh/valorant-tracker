@@ -14,19 +14,19 @@ const TeamStatTableHead = ({team, isShort}) => {
                </div>               
             </div>
          </th>
-         <th data-tooltip-description="Average Combat Score"style={{width:`${isShort?'10%':'auto'}`}}>ACS</th>         
-         <th data-tooltip-description="Kills" style={{width:`${isShort?'10%':'auto'}`}}>K</th>
-         <th data-tooltip-description="Deaths" style={{width:`${isShort?'10%':'auto'}`}}>D</th>
-         <th data-tooltip-description="Assists" style={{width:`${isShort?'10%':'auto'}`}}>A</th>         
+         <th data-tooltip-description="Average Combat Score"style={{width:`${isShort?'10%':'5%'}`}}>ACS</th>         
+         <th data-tooltip-description="Kills" style={{width:`${isShort?'10%':'5%'}`}}>K</th>
+         <th data-tooltip-description="Deaths" style={{width:`${isShort?'10%':'5%'}`}}>D</th>
+         <th data-tooltip-description="Assists" style={{width:`${isShort?'10%':'5%'}`}}>A</th>         
          {isShort?<></>:<>
-         <th data-tooltip-description="Difference between Kills and Deaths">+/-</th>
-         <th data-tooltip-description="Kill/Death Ratio">K/D</th>
-         <th data-tooltip-description="Average Damage per Round">ADR</th>
-         <th data-tooltip-description="Headshot Ratio">HS%</th>
-         <th data-tooltip-description="First Kills/Bloods">FK</th>
-         <th data-tooltip-description="First Deaths">FD</th>
-         <th data-tooltip-description="Multikills (3K+)">MK</th>
-         <th data-tooltip-description="Economy Rating">Econ</th>
+         <th style={{width:`${isShort?'10%':'6%'}`}} data-tooltip-description="Difference between Kills and Deaths">+/-</th>
+         <th style={{width:`${isShort?'10%':'6%'}`}} data-tooltip-description="Kill/Death Ratio">K/D</th>
+         <th style={{width:`${isShort?'10%':'6%'}`}} data-tooltip-description="Average Damage per Round">ADR</th>
+         <th style={{width:`${isShort?'10%':'6%'}`}} data-tooltip-description="Headshot Ratio">HS%</th>
+         <th style={{width:`${isShort?'10%':'6%'}`}} data-tooltip-description="First Kills/Bloods">FK</th>
+         <th style={{width:`${isShort?'10%':'6%'}`}} data-tooltip-description="First Deaths">FD</th>
+         <th style={{width:`${isShort?'10%':'6%'}`}} data-tooltip-description="Multikills (3K+)">MK</th>
+         <th style={{width:`${isShort?'10%':'6%'}`}} data-tooltip-description="Economy Rating">Econ</th>
          </>}         
       </tr>
    </thead>

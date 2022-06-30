@@ -1,14 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const AgentReveal = ({agent, match, agentAdditional}) => {
+const AgentReveal = ({agent, match, agentAdditional, team}) => {
     // console.log(agent)
-
+console.log(team)
   return (
    <>
     <div class="overview__agent">
    <div class="agent-details agent-details--2">
-      <div class="agent-details__summary" style={{"--agent-hero-url":`url(https\:\/\/trackercdn\.com\/cdn\/tracker\.gg\/valorant\/db\/agents\/${agent.character.toLowerCase()}_portrait\.png)`}}>
+      <div class="agent-details__summary" style={{"--team-background-color":`${team==="blue"?"#00554d":"#52222f"}`, "--team-color":`${team==="blue"?"#00eab1":"#ff294e"}`, "--agent-hero-url":`url(https\:\/\/trackercdn\.com\/cdn\/tracker\.gg\/valorant\/db\/agents\/${agent.character.toLowerCase()}_portrait\.png)`}}>
          <div class="agent-details__summary-header">
             <img src={agent.assets.agent.small} alt={agent.character} class="agent-portrait"/> 
             <span class="trn-ign agent-details__ign">

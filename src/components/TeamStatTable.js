@@ -11,7 +11,7 @@ const TeamStatTable = ({players, metadata, team, playersAdditional, isShort, rev
    <TeamStatTableHead team={team} isShort={isShort}/>
    <tbody >
        {players?.map((player)=>{
-           return <TeamStatSingle playersAdditional={playersAdditional} roundsPlayed={metadata.rounds_played} player={player} key={player.puuid} isShort={isShort} revealAgent={revealAgent} />
+           return <TeamStatSingle playersAdditional={playersAdditional} roundsPlayed={metadata.rounds_played} player={player} key={player.puuid} isShort={isShort} revealAgent={revealAgent} team={team}/>
        })}      
    </tbody>
 </table>
