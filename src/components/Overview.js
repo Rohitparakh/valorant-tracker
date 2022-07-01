@@ -20,7 +20,7 @@ const Overview = ({headerData, match, players}) => {
         setRevealedAgentAdditional(agentAdditional[id]);
         setRevealedAgentTeam(team);
     }
-console.log(revealedAgent)
+// console.log(revealedAgent)
   return (
     <>
         <MatchHeader data={headerData}/>
@@ -29,7 +29,11 @@ console.log(revealedAgent)
                 <TeamStatTable metadata={match.data?.metadata} playersAdditional={players} players={match.data?.players.blue} team="blue" isShort={true} revealAgent={revealAgent} />
                 <TeamStatTable metadata={match.data?.metadata} playersAdditional={players} players={match.data?.players.red} team="red" isShort={true} revealAgent={revealAgent} />
             </div>
-            {revealedAgent!==null?<AgentReveal agent={revealedAgent?.[0]} match={match} agentAdditional={revealedAgentAdditional} team={revealedAgentTeam}/>:<></>}
+            {revealedAgent!==null?<AgentReveal agent={revealedAgent?.[0]} match={match} agentAdditional={revealedAgentAdditional} team={revealedAgentTeam}/>:
+            <div className='flex jcc'>
+            <h3>Click an agent to reveal stats</h3>
+            </div>
+            }
                 
         </div>    
     </>

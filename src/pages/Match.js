@@ -184,11 +184,11 @@ useEffect(()=>{
   return (
     <div style={{color:'white'}}>
       {loading?<Loader/> :<>
-      <Tabs>
+      <Tabs defaultIndex="0">
     <TabList>
       <Tab>Scoreboard</Tab>
       <Tab>Overview</Tab>
-      <Tab>Duels</Tab>
+      {/* <Tab>Duels</Tab> */}
     </TabList>
 
     <TabPanel>
@@ -197,9 +197,9 @@ useEffect(()=>{
     <TabPanel>
       <Overview headerData={headerData} match={match} players={players} />
     </TabPanel>
-    <TabPanel>
+    {/* <TabPanel>
       <Duels headerData={headerData}/>
-    </TabPanel>
+    </TabPanel> */}
   </Tabs>
       
       </>}      

@@ -24,7 +24,7 @@ const Rounds = ({rounds}) => {
             break;
       }
       let winning_team = (round.winning_team==="Blue")?"win":"loss"
-      return(<div className='round' style={{width:`calc(100vw/${rounds.length})`}}>
+      return(<div className='round' style={{width:`calc(100vw/${rounds.length})`}} key={i}>
         <img className='round_win' src={`https://trackercdn.com/cdn/tracker.gg/valorant/icons/${end_type}${winning_team}1.png`}/>
         <span className='round_num'>{i+1}</span>
       </div>)
