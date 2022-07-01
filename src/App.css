@@ -1048,6 +1048,10 @@ span.round_num {
 
 .header {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  margin-bottom: 20px;
 }
 
 .header a {
@@ -1058,8 +1062,14 @@ span.round_num {
   padding: 20px;
 }
 
+.logo img{
+  max-height: 40px;
+}
+
 .header .name {
   padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .react-tabs__tab:focus:after {
