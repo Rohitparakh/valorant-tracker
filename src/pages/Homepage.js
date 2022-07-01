@@ -91,11 +91,11 @@ function Homepage() {
   return (
     <div className="App">
       <Input username={username} setUsername={setUsername} tag={tag} setTag={setTag} getData={getData}/>
-      {(account?.status===200 && !loading)?<Account data={account.data} rr={mmr.data[0].ranking_in_tier} rank ={mmr?.data[0].currenttier} rankPatched={mmr?.data[0].currenttierpatched}/>:<></>}
-      {(lastFive?.status===200 && !loading)?<LastFive mmr={mmr.data.slice(0,5)} data={lastFive} username={user} tag={tagline}/>:<></>}
+      {(account?.status===200 && !loading)?<Account data={account?.data} rr={mmr?.data[0]?.ranking_in_tier || 0} rank ={mmr?.data[0]?.currenttier || 0} rankPatched={mmr?.data[0]?.currenttierpatched || "Unranked"}/>:<></>}
+      {(lastFive?.status===200 && !loading)?<LastFive mmr={mmr?.data.slice(0,5)} data={lastFive} username={user} tag={tagline}/>:<></>}
       {(mmr?.status===200 && !loading)?<MMR data={mmr} username={user} tag={tagline}/>:<></>}      
       {loading?<Loader/> :<></>}
-      {(error.status >= 200 && error.status <= 299)?<></>:<><h1 style={{color:'white'}}>Status code:{error.status}</h1><p style={{color:'white'}}>Error Message: {error.message}</p></>}
+      {(error.status >= 200 && error.status <= 299)?<></>:<><h1 style={{color:'white'}}>Status code:{error.status}</h1><p style={{color:'white'}}> {error.message}</p></>}
     </div>
     
     
